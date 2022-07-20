@@ -3,16 +3,17 @@ import random
 
 def guess_code():
     answer = generate_unique_code()
-    correctCorrect = 0
-    correctIncorrect = 0
     allowedGuesses = 10
-    print(answer)
-    for i in range(1, allowedGuesses):
+    # print(answer)
+    for i in range(0, allowedGuesses):
         guess = input("Enter your guess: ")
         if guess == answer:
             print("right")
             break
         else:
+            correctCorrect = 0
+            correctIncorrect = 0
+
             if guess[0] == answer[0]:
                 correctCorrect += 1
             if guess[1] == answer[1]:
@@ -31,9 +32,11 @@ def guess_code():
             if guess[3] == answer[0] or guess[3] == answer[1] or guess[3] == answer[2]:
                 correctIncorrect += 1
 
-            print("wrong code. you have {0} guesses left.".format(allowedGuesses - i))
+            print("wrong code. you have {0} guesses left.".format(allowedGuesses - i - 1))
             print(guess + " had {0} correct digits in correct positions "
                           "and {1} correct digits in incorrect positions.".format(correctCorrect, correctIncorrect))
+
+    print("it exploded and you died.")
 
 
 def generate_unique_code():
