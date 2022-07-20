@@ -2,8 +2,13 @@ import random
 
 
 def guess_code():
-    val = input("Enter your value: ")
-    print(generate_unique_code())
+    answer = generate_unique_code()
+    # print(answer)
+    guess = input("Enter your guess: ")
+    if guess == answer:
+        print("right")
+    else:
+        print("wrong")
 
 
 def generate_unique_code():
